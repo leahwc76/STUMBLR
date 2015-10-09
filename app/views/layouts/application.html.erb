@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>CommentsExample</title>
+	  <link href='http://fonts.googleapis.com/css?family=Iceland' rel='stylesheet' type='text/css'>
+	  <script type="text/javascript" src="jquery-2.1.4.js"></script>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+	<header>
+		<h1 id="logo">STUMBLR</h1>
+		<nav>
+			<ul>
+				<% if current_user %>
+					<li><%= link_to 'Profile', profile_path %></li>
+					<li><%= link_to 'All Posts', posts_path %></li>
+					<li><%= link_to 'Create Post', new_post_path %></li>
+					<li><%= link_to 'Log Out', sessions_path, method: :delete %></li>
+					<li id="greeting">Laugh it up, <span class="greeting_username"><%= current_user.username %>!</span></li>
+				<% else %>
+					<li><%= link_to 'Sign Up', new_user_path %></li>
+					<li><%= link_to 'Log In', login_path %></li>
+				<% end %>
+			</ul>
+		</nav>
+	</header>
+		<main>	
+			<div class="splash">
+				<div class="notice">
+					<% if flash[:notice] %>
+						<%= flash[:notice] %>
+					<% end %>
+				</div>
+
+				<%= yield %>
+			</div>	
+		</main>
+	</body>
+</html>

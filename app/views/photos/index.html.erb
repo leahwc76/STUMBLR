@@ -1,0 +1,42 @@
+<% @user = current_user %>
+
+<div class="profile_nav">
+
+<div class="profile_nav_left">	
+		<% if current_user and current_user.photos.any? %>
+			<%= image_tag(Photo.find_by(user_id: current_user.id).image.url, class: 'media-object') %>	
+		<% else %>	
+		<%= image_tag 'missing_picture.png', class: 'media-object'  %>
+		<% end %>
+	</div>
+
+	<div class="profile_nav_center">	
+		<div class="username">
+			<h1><%= @user.username %></h1>
+		</div>
+		<div id="location">
+			<p><%= @user.location %></p>
+		</div>
+
+		<ul>
+			<li><%= link_to 'Profile', profile_path %></li> | 
+			<li><%= link_to 'Edit Info', edit_user_path(current_user.id) %></li> |
+			<li><%= link_to 'My Pics', photos_index_path %></li>
+		</ul>
+	</div>	
+
+	<div class="profile_nav_right"></div>
+</div>
+
+<hr>
+
+<div class="photo_page_header">
+	<h1>Photos</h1>
+	<p><%= link_to 'upload photo', photos_new_path %></p>
+</div>
+<br>
+<% if current_user and current_user.photos.any? %>
+	<%= render @photos %>
+<% else %>
+	<p>You didn't upload any photos yet.</p>	
+<% end %>

@@ -1,0 +1,7 @@
+<h1>My Posts</h1>
+<% @posts = Post.find_by(user_id: params[current_user.id]) %>
+<% @posts.each do |post| %>
+	<p><% post.body %></p>
+	<p><% post.time_ago_in_words(post.created_at) %></p>
+	<hr>
+<% end %>	

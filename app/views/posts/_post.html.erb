@@ -1,0 +1,25 @@
+<div class="post">
+	<h3><%= link_to post.title, post %></h3>
+	<p><%= post.body %></p>
+	
+	<div class="post_info">
+		<p><%= link_to(time_ago_in_words(post.created_at), post) %> ago 
+		by <%= post.user.username %></p>
+	</div>
+
+		<% if post.user.photos.any? %>
+				<%= image_tag(Photo.find_by(user_id: post.user.id).image.url, class: 'tiny_pic') %>	
+			<% else %>	
+				<%= image_tag 'missing_picture.png', class: 'tiny_pic' %>
+		<% end %>
+
+<br>
+
+	<% if current_user and current_user == post.user %>
+		<div class="button1"><%= link_to 'edit post', edit_post_path(post) %></div>
+		<div class="button2"><%= link_to 'delete post', post, method: :delete %></div>
+		<hr>
+	<% end %>
+</div>
+
+

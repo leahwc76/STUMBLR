@@ -1,0 +1,17 @@
+<div class="media">
+  	<ul>
+	  	<li>
+	  		<% if current_user and current_user == photo.user %>
+		  		<div class="media">
+			    	<%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %>
+				</div>
+
+			  	<div class="media-body">
+			    	<h4 class="media-heading"><%= photo.title %></h4>
+			    		<%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+			    	<hr>	
+				</div>
+			<% end %>
+		</li>    
+  	</ul>
+</div>

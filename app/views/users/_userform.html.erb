@@ -1,0 +1,46 @@
+<%= form_for @user do |f| %>
+	<p>
+		<%= f.label :First_name %><br>
+		<%= f.text_field :fname, required: true %>
+	</p>
+	<p>
+		<%= f.label :Last_name %><br>
+		<%= f.text_field :lname, required: true %>
+	</p>
+	<p>
+		<%= f.label :Username %><br>
+		<%= f.text_field :username, required: true %>
+	</p>
+	<p>
+		<%= f.label :Email %><br>
+		<%= f.email_field :email, required: true %>
+	</p>
+	<% if @user.new_record? %>
+		<p>
+			<%= f.label :Password %><br>
+			<%= f.password_field :password, required: true %>
+		</p>
+	<% end %>
+	
+	<p>
+		<%= f.label :Location %><br>
+		<%= f.text_field :location %>
+	</p>
+
+	<% if current_user %>
+		<p>
+			<%= f.label :Bio %><br>
+			<%= f.text_field :bio %>
+		</p>
+	<% end %>
+	<p>
+		<%= f.submit(@user.new_record? ? "Sign Up" : "Edit Info") %>
+	</p>
+
+<% end %>
+
+<% if current_user and current_user == @user %>
+	<% if !@user.new_record? %>
+		<div class="button1"><%= link_to 'Delete Account', user_path, method: :delete, data: {confirm: "Are you sure? Your profile and information will be permanently destroyed."} %></div>
+	<% end %>
+<% end %>	

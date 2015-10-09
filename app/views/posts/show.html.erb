@@ -1,0 +1,32 @@
+<%= image_tag "post3.png" %>
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+<div class="post_info">
+	<p>by <%= @post.user.username %></p>
+</div>
+
+<% if @post.user.photos.any? %>
+				<%= image_tag(Photo.find_by(user_id: @post.user.id).image.url, class: 'tiny_pic') %>	
+			<% else %>	
+				<%= image_tag 'missing_picture.png', class: 'tiny_pic' %>
+		<% end %>
+
+<hr>
+
+<h3>New Comment</h3>
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_area :body %><br>
+	<%= f.submit %>
+<% end %>
+
+<h3>Comments</h3>
+<% @post.comments.reverse.each do |comment| %>
+	<p><%= comment.body %></p>
+	<p><%= time_ago_in_words(comment.created_at) %> ago 
+	by <%= comment.user.username %></p>
+	<% if current_user and comment.user.id == current_user.id %>
+		<%= link_to 'Delete', comment_path(comment), method: :delete %>
+	<% end %>	
+	<hr>
+<% end %>
