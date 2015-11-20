@@ -8,6 +8,8 @@ protected
   	session[:user_id] ? User.find(session[:user_id]) : nil
   end
 
+  helper_method :current_user
+
   def authenticate_user! 
   	unless current_user
   		redirect_to login_path, notice: "Please log in first"

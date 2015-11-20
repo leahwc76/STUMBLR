@@ -22,6 +22,6 @@ resources :photos, only: [:new, :create, :index, :destroy]
 get '/profile', to: 'users#profile'
 get '/profile/:username', to: 'users#show', as: 'profile_user'
   
-root 'sessions#new'  
+root 'users#index'  
 
 end

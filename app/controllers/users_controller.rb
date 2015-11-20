@@ -61,7 +61,7 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :fname, :lname, :location, :bio, :password)
+    params.require(:user).permit(:username, :email, :fname, :lname, :location, :bio, :password, :password_confirmation)
   end
 
   def authorize_user

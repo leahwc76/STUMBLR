@@ -13,118 +13,149 @@
  *= require_tree .
  *= require_self
  */
+
 body {
-	font-family: 'Iceland', didot, sans-serif;
-	font-size: 1.2em;
-	background-image: url('bg1.jpg');
 	background-size: 100%;
+	background-color: #2B4970;
+	/*background-color: #FFFEF6;*/
+	color: #cccccc;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/*.container {
+	border: 1px solid black;
+}*/
+
+/*.row1 {
+	border: 1px solid black;
+}*/
+
+.col-md-6 {
+	border: 1px solid black;
+}
+
+.row2 {
+	border-bottom: 1px solid #cccccc;
+	margin-top: 30px;
 }
 
 ul li {
 	list-style-type: none;
 	display: inline-block;
+	margin-left: 15px;
 }
 
-ul {
-	padding: 0;
+ul li a {
+	color: #cccccc;
 }
-
-header {
-	width: 100%;
-	height: 115px;
-	margin: 0;
-	top: 0;
-/*	position: fixed;*/
-/*	background-color: rgba(0,0,0,0.4);*/
-}
-
 
 #logo {
-	color: yellow;
-	margin-top: 15px;
-	margin-bottom: 0px;
-	margin-left: 39px;
+	margin-left: -50px;
+	font-family: 'Iceland', cursive;
+	color: white;
 }
 
-nav > ul {
-	list-style-type: none;
-	margin-left: 40px;
-}
-
-nav > ul li {
-	display: inline-block;
-	margin-right: 15px;
-	font-size: 1.5em;
-	margin-top: 13px;
-}
-
-nav > ul li a {
-	text-decoration: none;
-	color: #DEDEDE;
-	font-size: .75em;
-}
-
-nav > ul li a:hover {
+ul li a:hover {
+	color: #cccccc;
 	text-decoration: underline;
 }
 
-#greeting {
-	float: right;
-	margin-right: 60px;
-	color: #DEDEDE;
-	font-size: 1.1em;
+.slideshow {
+	width: 100%;
+	height: 100%;
 }
 
-.greeting_username {
-	color: yellow;
+#slideshowpic {
+	margin-top: 10px;
+	width: 100%;
+	height: 100%;	
+}
+
+.row3 {
+	border: 1px solid blue;
+	margin-top: 20px;
+	padding: 0px;
 }
 
 .splash {
+	border: 1px solid black;
 	text-align: center;
 	padding: 15px;
 	margin: 0 auto;
 	margin-top: 15px;
 	margin-bottom: 50px;
-	width: 50%;
-	height: 510px;
+	width: 98%;
+	height: 500px;
 	overflow: scroll;
-	background-color: #282727;
-	border-radius: 15px;
-	color: #DEDEDE;
+	/*background-color: #282727;
+	/*border-radius: 15px;*/
+	/*color: #DEDEDE;*/
 }
+
+#logo2 {
+	font-family: 'Iceland', cursive;
+	color: white;
+}
+
+.opening {
+	margin-top: 30px;
+}
+
+form input {
+	width: 40%;
+	height: 20px;
+	text-align: center;
+}
+
+form textarea {
+	width: 40%;
+	height: 50px;
+	text-align: center;
+}
+
+input[type=submit]{
+	width: 80px;
+	height: 40px;
+	color: #2b2b2b;
+}
+
+.button1, .button2 {
+	border: 1px solid #9F9F9F;
+	background-color: white;
+	width: 60px;
+	height: 25px;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.button1 a {
+	color: #2b2b2b;
+}
+
+.button2 a {
+	color: #2b2b2b;
+}
+
 
 a {
-	color: #AEAEAE;
 	text-decoration: none;
-}
-
-a:hover {
-	color: yellow;
 }
 
 hr {
 	width: 50%;
 }
 
-.button1, .button2 {
-	border: 2px solid white;
-	border-radius: 15px;
-	width: 100px;
-	margin: 0 auto;
-	display: inline-block;
-}
-
 .media-object {
 	height: 150px;
 	width: 150px;
-	border-radius: 75px;
+	/*border-radius: 75px;*/
 	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
 .tiny_pic {
 	height: 40px;
 	width: 40px;
-	border-radius: 20px;
+	/*border-radius: 20px;*/
 	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
@@ -193,7 +224,7 @@ hr {
 }
 
 .username {
-	color: yellow;
+	/*color: yellow;*/
 }
 
 .username > h1 {
@@ -204,21 +235,7 @@ hr {
 	margin-top: 0px;
 }
 
-form input {
-	width: 60%;
-	height: 20px;
-	border: 1px solid yellow;
-	border-radius: 15px;
-	text-align: center;
-}
 
-form textarea {
-	width: 60%;
-	height: 50px;
-	border: 1px solid yellow;
-	border-radius: 15px;
-	text-align: center;
-}
 
 .make_new_post {
 	position: relative;
@@ -227,7 +244,7 @@ form textarea {
 }
 
 .link_color {
-	color: yellow;
+	/*color: yellow;*/
 }
 
 .form-group {

@@ -10,7 +10,7 @@
 
 	<div class="profile_nav_center">	
 		<div class="username">
-			<h1><%= @user.username %></h1>
+			<h2><%= @user.username %></h2>
 		</div>
 		<div id="location">
 			<p><%= @user.location %></p>
@@ -26,37 +26,36 @@
 	<div class="profile_nav_right"></div>
 </div>
 <hr>
-	<h2>About Me</h2>
+	<h3>About Me</h3>
 	<p><%= @user.bio %></p>
 
-	<h2 id="section_title">Latest Posts</h2>
-	<% posts = Post.last(5).reverse %>
-	<% posts.each do |post| %>
-		<h2><%= post.title %></h2>
-		<p><%= post.body %></p>
+<!-- 	<h3 id="section_title">Latest Posts</h3>
+	<%# posts = Post.last(5).reverse %>
+	<%# posts.each do |post| %>
+		<h3><%# post.title %></h3>
+		<p><%# post.body %></p>
 		
 		<div class="post_info">
 			<p>
-				<%= link_to(time_ago_in_words(post.created_at), post) %> ago by 
-				<%= link_to post.user.username, profile_user_path(post.user.username) %>
+				<%# link_to(time_ago_in_words(post.created_at), post) %> ago
 			</p>
 		</div>	
 
-		<% if post.user.photos.any? %>
-				<%= image_tag(Photo.find_by(user_id: post.user.id).image.url, class: 'tiny_pic') %>	
-			<% else %>	
-				<%= image_tag 'missing_picture.png', class: 'tiny_pic' %>
-		<% end %>
+		<%# if post.user.photos.any? %>
+				<%# image_tag(Photo.find_by(user_id: post.user.id).image.url, class: 'tiny_pic') %>	
+			<%# else %>	
+				<%# image_tag 'missing_picture.png', class: 'tiny_pic' %>
+		<%# end %>
 
 <br>
 
-		<% if current_user and current_user == post.user %>
-			<div class="button1"><%= link_to 'edit post', edit_post_path(post) %></div>
-			<div class="button2"><%= link_to 'delete post', post, method: :delete %></div>
-		<% end %>
-	<% end %>
+		<%# if current_user and current_user == post.user %>
+			<div class="button1"><%# link_to 'edit post', edit_post_path(post) %></div>
+			<div class="button2"><%# link_to 'delete post', post, method: :delete %></div>
+		<%# end %>
+	<%# end %>
 
-<hr>
+<hr> -->
 
 <h2>My Posts</h2>
 <% if current_user and current_user.posts.any? %>
@@ -66,6 +65,8 @@
 			<%= post.body %><br>
 			<%= time_ago_in_words(post.created_at) %> ago
 		</p>
+		<div class="button1"><%= link_to 'edit post', edit_post_path(post) %></div>
+		<div class="button2"><%= link_to 'delete post', post, method: :delete %></div>
 	<% end %>
 <% else %>
 	<p>You don't have any posts.</p>
