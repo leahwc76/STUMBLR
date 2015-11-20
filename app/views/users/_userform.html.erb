@@ -45,6 +45,6 @@
 
 <% if current_user and current_user == @user %>
 	<% if !@user.new_record? %>
-		<div class="button1"><%= link_to 'Delete Account', user_path, method: :delete, data: {confirm: "Are you sure? Your profile and information will be permanently destroyed."} %></div>
+		<div class="deletebutton"><%= link_to 'Delete Account', user_path, method: :delete, data: {confirm: "Are you sure? Your profile and information will be permanently destroyed."} %></div>
 	<% end %>
 <% end %>	

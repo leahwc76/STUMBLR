@@ -1,32 +1,33 @@
 <div class="profile_nav">
 
-<div class="profile_nav_left">	
+	<div class="profile_nav_left">	
 		<% if current_user and current_user.photos.any? %>
-			<%= image_tag(Photo.find_by(user_id: current_user.id).image.url, class: 'media-object') %>	
+			<%= image_tag(Photo.find_by(user_id: current_user.id).image.url, class: 'profilepic') %>	
 		<% else %>	
-		<%= image_tag 'missing_picture.png', class: 'media-object'  %>
+			<%= image_tag 'missing_picture.png', class: 'profilepic' %>
 		<% end %>
 	</div>
 
-	<div class="profile_nav_center">	
+	<div class="profile_nav_right">	
 		<div class="username">
-			<h1><%= @user.username %></h1>
+			<h2><%= @user.username %></h2>
 		</div>
 		<div id="location">
-			<p><%= @user.location %></p>
+			<p>Located at <%= @user.location %></p>
 		</div>
 
-		<ul>
-			<li><%= link_to 'Profile', profile_path %></li> | 
-			<li><%= link_to 'Edit Info', edit_user_path(current_user.id) %></li> |
-			<li><%= link_to 'My Pics', photos_index_path %></li> 
-		</ul>
+			<li>
+				<%= link_to 'Profile', profile_path %>
+			</li> | 
+			<li>
+				<%= link_to 'Edit Info', edit_user_path(current_user.id) %>
+			</li> |
+			<li>
+				<%= link_to 'My Pics', photos_index_path %>
+			</li> 
 	</div>	
 
-	<div class="profile_nav_right"></div>
 </div>
 
-<hr>
-
-<h1>Edit Info</h1>
+<h2>Edit Info</h2>
 <%= render 'userform' %>

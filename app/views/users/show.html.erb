@@ -1,63 +1,41 @@
 <div class="profile_nav">
 
-<div class="profile_nav_left">	
+	<div class="profile_nav_left">	
 		<% if current_user and current_user.photos.any? %>
-			<%= image_tag(Photo.find_by(user_id: current_user.id).image.url, class: 'media-object') %>	
+			<%= image_tag(Photo.find_by(user_id: current_user.id).image.url, class: 'profilepic') %>	
 		<% else %>	
-			<%= image_tag 'missing_picture.png', class: 'media-object' %>
+			<%= image_tag 'missing_picture.png', class: 'profilepic' %>
 		<% end %>
 	</div>
 
-	<div class="profile_nav_center">	
+	<div class="profile_nav_right">	
 		<div class="username">
 			<h2><%= @user.username %></h2>
 		</div>
 		<div id="location">
-			<p><%= @user.location %></p>
+			<p>Located at <%= @user.location %></p>
 		</div>
 
-		<ul>
-			<li><%= link_to 'Profile', profile_path %></li> | 
-			<li><%= link_to 'Edit Info', edit_user_path(current_user.id) %></li> |
-			<li><%= link_to 'My Pics', photos_index_path %></li> 
-		</ul>
+			<li>
+				<%= link_to 'Profile', profile_path %>
+			</li> | 
+			<li>
+				<%= link_to 'Edit Info', edit_user_path(current_user.id) %>
+			</li> |
+			<li>
+				<%= link_to 'My Pics', photos_index_path %>
+			</li> 
 	</div>	
 
-	<div class="profile_nav_right"></div>
 </div>
-<hr>
-	<h3>About Me</h3>
-	<p><%= @user.bio %></p>
 
-<!-- 	<h3 id="section_title">Latest Posts</h3>
-	<%# posts = Post.last(5).reverse %>
-	<%# posts.each do |post| %>
-		<h3><%# post.title %></h3>
-		<p><%# post.body %></p>
-		
-		<div class="post_info">
-			<p>
-				<%# link_to(time_ago_in_words(post.created_at), post) %> ago
-			</p>
-		</div>	
+<% if current_user %>
+	<h2>About Me</h2>
+		<p><%= @user.bio %></p>
 
-		<%# if post.user.photos.any? %>
-				<%# image_tag(Photo.find_by(user_id: post.user.id).image.url, class: 'tiny_pic') %>	
-			<%# else %>	
-				<%# image_tag 'missing_picture.png', class: 'tiny_pic' %>
-		<%# end %>
+	<h2>My Posts</h2>
+<% end %>
 
-<br>
-
-		<%# if current_user and current_user == post.user %>
-			<div class="button1"><%# link_to 'edit post', edit_post_path(post) %></div>
-			<div class="button2"><%# link_to 'delete post', post, method: :delete %></div>
-		<%# end %>
-	<%# end %>
-
-<hr> -->
-
-<h2>My Posts</h2>
 <% if current_user and current_user.posts.any? %>
 	<% @user.posts.reverse.each do |post| %>
 			<%= post.title %><br>
