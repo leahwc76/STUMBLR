@@ -10,7 +10,7 @@
 		<% if post.user.photos.any? %>
 				<%= image_tag(Photo.find_by(user_id: post.user.id).image.url, class: 'tiny_pic') %>	
 			<% else %>	
-				<%= image_tag 'missing_picture.png', class: 'tiny_pic' %>
+				<%= image_tag '/assets/missing_picture.png', class: 'tiny_pic' %>
 		<% end %>
 
 <br>
