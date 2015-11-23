@@ -214,6 +214,7 @@ hr {
 
 .media > ul {
 	margin: 0;
+	padding-left: 0;
 }
 
 .media > ul li {
