@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
-belongs_to :user
+  attr_accessor :image
+	belongs_to :user
 # has_attached_file :image, styles: { thumb: ["64x64#", :jpg], small: ['150x150>'], medium: ['250x250>'], original: ['500x500>', :jpg] }, convert_options: { thumb: "-quality 75 -strip", original: "-quality 85 -strip" }
 # has_attached_file :image, url: "/system/:hash.:extension", hash_secret: "abc123"
 # has_attached_file :image, preserve_files: "true"

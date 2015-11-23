@@ -4,7 +4,7 @@
 		<% if current_user and current_user.photos.any? %>
 			<%= image_tag(Photo.find_by(user_id: current_user.id).image.url, class: 'profilepic') %>	
 		<% else %>	
-			<%= image_tag '/assets/missing_picture.png', class: 'profilepic' %>
+			<%= image_tag 'missing_picture.png', class: 'profilepic' %>
 		<% end %>
 	</div>
 

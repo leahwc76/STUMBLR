@@ -1,4 +1,4 @@
-<%= image_tag "/assets/post3.png" %>
+<%= image_tag "post3.png" %>
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
 
@@ -9,7 +9,7 @@
 <% if @post.user.photos.any? %>
 				<%= image_tag(Photo.find_by(user_id: @post.user.id).image.url, class: 'tiny_pic') %>	
 			<% else %>	
-				<%= image_tag '/assets/missing_picture.png', class: 'tiny_pic' %>
+				<%= image_tag 'missing_picture.png', class: 'tiny_pic' %>
 		<% end %>
 
 <hr>
