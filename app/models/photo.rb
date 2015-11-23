@@ -5,7 +5,7 @@ belongs_to :user
 # has_attached_file :image, preserve_files: "true"
 # validates_attachment :image, presence: true, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }, size: { in: 0..1700.kilobytes }
 # validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
-	has_attached_file :image, styles: { medium: "150x150>", thumb: "75x75>" }, default_url: "/images/:style/missing.png"
+	has_attached_file :image, styles: { medium: "150x150>", thumb: "75x75>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end
 
