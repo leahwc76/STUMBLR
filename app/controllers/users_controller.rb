@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     session[:user_id] = nil
-    redirect_to new_user_path, notice: "There is no escape. Don't make me destroy you."
+    redirect_to new_user_path, notice: "Account Destroyed."
   end
 
 private
